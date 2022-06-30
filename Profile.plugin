@@ -123,7 +123,62 @@ http-response https://(commerce-.*api|pay).(faceu|wecut).(com|mobi)/(commerce|ap
 ##JD Price## api.m.jd.com
 http-response ^https?://api\.m\.jd\.com/(client\.action|api)\?functionId=(wareBusiness|serverConfig|basicConfig|lite_wareBusiness|pingou_item) requires-body=true, script-path=https://raw.githubusercontent.com/githubdulong/Script/master/jd_price.js, tag=JD历史价格
 
+##影视网站去广告##
+# > 14 茶杯狐[网页优化]@ddgksf2013 - 网站地址：https://cupfox.app
+http-response ^https?:/\/cupfox\.app(\/?$|\/([?]|search|list).*$) script-path=https://github.com/ddgksf2013/Cuttlefish/raw/master/Html/JS/cupbox.js
+# > 13 哔嘀影视[网页优化]@ddgksf2013 - 网站地址：https://www.btbdys.com
+http-response ^https?:\/\/www\.btbdys\.com(\/?$|\/([a-z]+)\/(play\/)?\d+.*$) script-path=https://github.com/ddgksf2013/Cuttlefish/raw/master/Html/JS/bdys.js
+# > 12 Cokemv[网页优化]@ddgksf2013 - 网站地址：https://cokemv.me
+http-response ^https?:/\/cokemv\.me(\/?$|\/([?]|vod).*$) script-path=https://github.com/ddgksf2013/Cuttlefish/raw/master/Html/JS/cokemv.js
+# > 11 PornHub[网页优化]@ddgksf2013 - 网站地址：https://cn.pornhub.com
+^https:\/\/(cn|www)\.pornhub\.com\/_xa\/ads url reject-dict
+http-response ^https?:/\/(cn|www)\.pornhub\.com(\/?$|\/([?]|view|video).*$) script-path=https://github.com/ddgksf2013/Cuttlefish/raw/master/Html/JS/pornhub.js
+# > 10 LeZhu[网页优化]@ddgksf2013 - 网站地址：http://www.lezhutv.com
+http-response ^https?:/\/www\.lezhutv\.com(\/?$|\/([?]|type|detail|play|index).*$) script-path=https://github.com/ddgksf2013/Cuttlefish/raw/master/Html/JS/lezhu.js
+# > 09 Bimi[网页优化]@ddgksf2013 - 网站地址：https://www.bimi.net
+http-response ^https?:/\/www\.bimi.*\.(net\/$|net\/(vodshow|bangumi|type)\/[0-9a-z-\/]+\/$) script-path=https://github.com/ddgksf2013/Cuttlefish/raw/master/Html/JS/bimi.js
+# > 08 禁漫天堂[网页优化]@ddgksf2013 - 网站地址：https://18comic.org
+http-response ^https?:\/\/18comic\.org(\/?$|\/([?]|album|photo).*$) script-path=https://github.com/ddgksf2013/Cuttlefish/raw/master/Html/JS/18comic.js
+# > 07 555影视[网页优化]@ddgksf2013 - 网站地址：https://555dy.vip
+http-response ^https?:\/\/(www\.)?(5.*|o8tv)\.((cc|vip|com)\/$|(cc|vip|com)\/[a-z]+\/[0-9a-z-]+\.html) script-path=https://github.com/ddgksf2013/Cuttlefish/raw/master/Html/JS/555.js
+# > 06 剧迷[网页优化]@ddgksf2013 - 网站地址：https://gimytv.app
+http-response ^https?:\/\/gimytv\.(app\/$|app\/(browse\/)?[0-9a-zA-Z-_]+\.html) script-path=https://github.com/ddgksf2013/Cuttlefish/raw/master/Html/JS/gimytv.js
+# > 05 低端影视[网页优化]@ddgksf2013 - 网站地址：https://ddrk.me
+http-response ^https:?\/\/ddrk.me.* script-path=https://github.com/ddgksf2013/Cuttlefish/raw/master/Html/JS/ddrk.js
+# > 04 天空影视[网页优化]@ddgksf2013 - 网站地址：https://www.tkys.tv
+http-response ^https?:\/\/www\.tkys\.(tv\/$|tv\/(voddetail|vodplay)\/[0-9a-z-]+\.html$) script-path=https://github.com/ddgksf2013/Cuttlefish/raw/master/Html/JS/tkys.js
+# > 03 厂长电影[网页优化]@ddgksf2013 - 网站地址：https://www.qianoo.cn
+http-response ^https?:/\/www\.qianoo\.(cn\/$|cn\/[0-9a-zA-Z_\/]+\.html$) script-path=https://github.com/ddgksf2013/Cuttlefish/raw/master/Html/JS/qianoo.js
+# > 02 真不卡[网页优化]@ddgksf2013 - 网站地址：https://www.zhenbuka5.com
+http-response ^https?:\/\/www\.zhenbuka.*\.com(\/?$|\/([?]|vod|top).*$) script-path=https://github.com/ddgksf2013/Cuttlefish/raw/master/Html/JS/zhenbuka.js
+# > 01 libvio[网页优化]@ddgksf2013 - 网站地址：https://www.iioo.me
+http-response ^https?:/\/www\.libvio\.(me\/$|me\/(detail|play)\/[0-9a-z-]+\.html$) script-path=https://github.com/ddgksf2013/Cuttlefish/raw/master/Html/JS/libvio.js
+
+#RRTV##
+# ～ RRTV_level_info@ddgksf2013
+http-response ^https?:\/\/api\.rr\.tv\/\w{3}\/level\/info script-path=https://raw.githubusercontent.com/ddgksf2013/Cuttlefish/master/Script/rrtv.js
+# ～ RRTV_屏蔽軟件更新@ddgksf2013
+^https?:\/\/api\.rr\.tv\/.*?Version url reject
+# ～ RRTV_去除首頁廣告@ddgksf2013
+http-response https://api.rr.tv/v3plus/index/channel\?pageNum=1&position=CHANNEL_INDEX script-path=https://raw.githubusercontent.com/ddgksf2013/Cuttlefish/master/Script/rrtv.js
+# ～ RRTV_去除廣場tab@ddgksf2013
+http-response ^https?:\/\/api\.rr\.tv\/app\/config\/h5NativeBar script-path=https://raw.githubusercontent.com/ddgksf2013/Cuttlefish/master/Script/rrtv.js
+# ～ RRTV_去除商城廣告@ddgksf2013
+http-response ^https?:\/\/api\.rr\.tv\/v3plus\/index\/channel\?pageNum=1&position=CHANNEL_MY script-path=https://raw.githubusercontent.com/ddgksf2013/Cuttlefish/master/Script/rrtv.js
+# ～ RRTV_Ad_List@ddgksf2013
+http-response ^https:\/\/api\.rr\.tv\/user\/privilege\/list script-path=https://raw.githubusercontent.com/ddgksf2013/Cuttlefish/master/Script/rrtv.js
+# ～ RRTV_Ad_All@ddgksf2013
+http-response ^https:\/\/api\.rr\.tv\/ad\/getAll script-path=https://raw.githubusercontent.com/ddgksf2013/Cuttlefish/master/Script/rrtv.js
+# ～ RRTV_Get_Drama@ddgksf2013
+http-response ^https:\/\/api\.rr\.tv\/drama\/app\/get_combined_drama_detail script-path=https://raw.githubusercontent.com/ddgksf2013/Cuttlefish/master/Script/rrtv.js
+# ～ RRTV_Watch_V4@ddgksf2013
+http-response https://api.rr.tv/watch/v4 url script-path=https://raw.githubusercontent.com/ddgksf2013/Cuttlefish/master/Script/rrtv.js
+# ～ RRTV_User_Info@ddgksf2013
+http-response https://api.rr.tv/user/profile script-path=https://raw.githubusercontent.com/ddgksf2013/Cuttlefish/master/Script/rrtv.js
+# ～ RRTV_屏蔽限時彈窗@ddgksf2013
+https://api.rr.tv/storage/business/rootName/app/homePage\?dataType=JSON url reject-dict
+
 # 分割线——————————————————————————
 
 [MITM]
-hostname = api.weibo.cn, mapi.weibo.com, *.uve.weibo.com, mp.weixin.qq.com, vsco.co, api.revenuecat.com, account.wps.cn, api.picsart.c*, api.meiease.c*, app.api.versa-ai.com, commerce-api.faceu.mobi, shopmember.m.jd.com, api.m.jd.com, trade-acs.m.taobao.com, weixin110.qq.com, security.wechat.com, sub.store, mb3admin.com, api.weibo.cn, mapi.weibo.com, sdkapp.uve.weibo.com, api.rr.tv, api.weibo.cn, mapi.weibo.com, *.uve.weibo.com, new.vip.weibo.cn, api.polaxiong.com, edith.xiaohongshu.com, api.xiuxiu.meitu.com, h5.xiuxiu.meitu.com, commerce-i18n-api.faceu.mobi,commerce-api.faceu.mobi, pay.wecut.com
+hostname = api.weibo.cn, mapi.weibo.com, *.uve.weibo.com, mp.weixin.qq.com, vsco.co, api.revenuecat.com, account.wps.cn, api.picsart.c*, api.meiease.c*, app.api.versa-ai.com, commerce-api.faceu.mobi, shopmember.m.jd.com, api.m.jd.com, trade-acs.m.taobao.com, weixin110.qq.com, security.wechat.com, sub.store, mb3admin.com, api.weibo.cn, mapi.weibo.com, sdkapp.uve.weibo.com, api.rr.tv, api.weibo.cn, mapi.weibo.com, *.uve.weibo.com, new.vip.weibo.cn, api.polaxiong.com, edith.xiaohongshu.com, api.xiuxiu.meitu.com, h5.xiuxiu.meitu.com, commerce-i18n-api.faceu.mobi,commerce-api.faceu.mobi, pay.wecut.com, cupfox.app, www.btbdys.com, cokemv.me, *.pornhub.com, www.lezhutv.com, www.bimi*.net, 18comic.org, www.o8tv.com, 555dy.vip,www.5*.com,www.5*.cc, gimytv.app, ddrk.me, www.tkys.tv, www.qianoo.cn, *.zhenbuka*.*, www.libvio.me, api.rr.tv
